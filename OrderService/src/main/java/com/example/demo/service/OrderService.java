@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,5 +22,10 @@ public class OrderService {
 	public List<Order> getAll()
 	{
 		return _orderRepository.findAll();
+	}
+	
+	public Optional<Order> GetById(int i)
+	{
+		 return _orderRepository.findById(i);
 	}
 }
