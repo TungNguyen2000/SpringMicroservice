@@ -1,0 +1,27 @@
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+@RestController
+public class OrderServiceApplication implements QuanLyNhanVien{
+
+	public static void main(String[] args) {
+		SpringApplication.run(OrderServiceApplication.class, args);
+	}
+
+	@Override
+	public String LayThongTinNhanVien() {
+		// TODO Auto-generated method stub
+		return "Employee information";
+	}
+
+	@Override
+	public void ThemNhanVien() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

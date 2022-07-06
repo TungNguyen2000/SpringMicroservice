@@ -1,0 +1,25 @@
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class QuanLyNhanSuApplication implements QuanLyNhanVien{
+
+	public static void main(String[] args) {
+		SpringApplication.run(QuanLyNhanSuApplication.class, args);
+	}
+
+	@Override
+	public String LayThongTinNhanVien() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void ThemNhanVien() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

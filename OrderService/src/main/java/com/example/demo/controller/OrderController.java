@@ -1,0 +1,34 @@
+package com.example.demo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.service.OrderService;
+import com.example.demo.model.Order;
+
+@RestController
+@RequestMapping("/api/orders")
+public class OrderController {
+
+	@Autowired
+	OrderService orderService;
+	
+	@GetMapping("all")
+	public List<Order> getAll()
+	{
+		return orderService.getAll();
+	}
+	
+	@PostMapping("add")
+	public Order saveOrder(@RequestBody Order order)
+	{
+		return orderService.saveOrder(order);
+	}
+}
