@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +20,7 @@ import com.sun.istack.NotNull;
 import com.example.demo.model.Order;
 
 @RestController
-@RequestMapping("/api/orders")
+@RequestMapping("/orders")
 public class OrderController {
 
 	@Autowired
@@ -44,7 +45,7 @@ public class OrderController {
 	}
 	
 	@PutMapping("update/{id}")
-	public ResponseEntity<Order> updateEmployee(@PathVariable(value = "id") int orderId, @RequestBody Order orderDetails) {
+	public ResponseEntity<Order> updateOrder(@PathVariable(value = "id") int orderId, @RequestBody Order orderDetails) {
 	     Order order = orderService.GetById(orderId)
 	     .orElseThrow();
 
@@ -54,5 +55,15 @@ public class OrderController {
 	     order.setOrderStatus(orderDetails.getOrderStatus());
 	     final Order updatedOrder = orderService.saveOrder(order);
 	     return ResponseEntity.ok(updatedOrder);
+	}
+	
+	@DeleteMapping("delete/{id}")
+	public ResponseEntity<String> deleteOrder(@PathVariable(value = "id") int orderId) throws Exception {
+		
+		 try{orderService.Delete(orderId);
+	     return ResponseEntity.ok("success");}
+		 catch(Exception e) {
+			 throw e;
+		 }
 	}
 }

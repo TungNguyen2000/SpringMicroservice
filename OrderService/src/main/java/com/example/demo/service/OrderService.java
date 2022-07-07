@@ -28,4 +28,10 @@ public class OrderService {
 	{
 		 return _orderRepository.findById(i);
 	}
+	
+	public void Delete(int i)
+	{
+		_orderRepository.deleteById(i);
+		return ;
+	}
 }

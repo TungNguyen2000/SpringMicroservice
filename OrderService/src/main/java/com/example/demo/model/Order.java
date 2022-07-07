@@ -47,7 +47,6 @@ public class Order {
 	public void setOrderStatus(String orderStatus) {
 		OrderStatus = orderStatus;
 	}
-	@Column(name = "Created_On", nullable = true)
 	public Date getCreatedOn() {
 		return CreatedOn;
 	}
