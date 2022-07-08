@@ -97,11 +97,13 @@ primary key(`OrderID`,`ProductID`)
 alter table `Order_Product` add constraint `FK_Order_Product_Order` foreign key(`OrderID`) references `Order`(`OrderID`);
 alter table `Order_Product` add constraint `FK_Order_Product_Product` foreign key(`ProductID`) references `Product`(`ProductID`);
 
+drop table `Comment`;
 create table if not exists `Comment`(
+`CommentID` int,
 `CustomerID` int,
 `ProductID` int,
 `Content` varchar(100),
-primary key(`CustomerID`,`ProductID`)
+primary key(`CommentID`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 alter table `Comment` add constraint `FK_Comment_Customer` foreign key(`CustomerID`) references `Customer`(`CustomerID`);
